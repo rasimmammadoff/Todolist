@@ -1,0 +1,37 @@
+{%load static%}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>To Do List</title>
+	<link rel="stylesheet" type="text/css" href="{%static 'css/style.css'%}">
+</head>
+<body>
+	<form action="/addTodo/" method="POST">{%csrf_token%}
+		<input class="addtask" type="text" name="content" placeholder="Add a task">
+	</form>
+	<h4>Not Completed</h4>
+	{% for todo_item in all_items %}
+		{%if todo_item.completed == 0 %}
+		<li class="ncompleted">{{todo_item.content}}
+		<form style="display: inline-block;" action="/delete/{{todo_item.id}}" method="POST">{%csrf_token%}
+			<input style="background: red;" type="submit" value="Delete">
+		</form>
+		<form style="display: inline-block;" action="/completed/{{todo_item.id}}" method="POST">{%csrf_token%}
+			<input style="background: green;"type="submit" value="Completed">
+		</form>
+		</li>
+		{%endif%}
+	{% endfor %}
+
+	 <h4>Completed</h4>
+	{%for todo_item in all_items%}
+		{% if todo_item.completed == 1  %}
+			<li class="completed">{{todo_item.content}}
+			<form style="display: inline-block;" action="/delete/{{todo_item.id}}" method="POST">{%csrf_token%}
+				<input style="background: red;" type="submit" value="Delete">
+			</form>
+			</li>
+		{% endif %}
+	{%endfor%}
+</body>
+</html>

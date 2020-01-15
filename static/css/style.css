@@ -1,0 +1,48 @@
+body{
+	background:linear-gradient(90deg,#4682B4, #DAA520);
+	overflow-x: hidden;
+}
+h4{
+	font-size: 25px;
+	position: relative;
+	left: 45%;
+}
+.addtask{
+	width: 100%;
+	font-size: 35px;
+	padding: 10px;
+	background: none;
+	color: white;
+	border:none;
+	border-bottom: 2px solid black;
+}
+.addtask::placeholder{
+	color:#ADD8E6;
+}
+.ncompleted{
+	font-size: 25px;
+	padding: 10px;
+	list-style: none;
+	background: #C0C0C0;
+	margin: 6px 0;
+	border-radius: 20px;
+}
+.completed{
+	font-size: 25px;
+	padding: 10px;
+	list-style: none;
+	background: #808080;
+	margin: 6px 0;
+	border-radius: 20px;
+}
+li form{
+	float:right;
+
+}
+li form input{
+	font-size: 20px;
+	margin-right: 10px;
+	color: white;
+	border: none;
+	border-radius: 20px;
+}
